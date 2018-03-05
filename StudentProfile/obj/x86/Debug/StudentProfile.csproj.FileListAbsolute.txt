@@ -1,0 +1,5 @@
+D:\VISUAL_STUDIO\ProjectsOfC-Sharp\StudentProfile\StudentProfile\bin\Debug\StudentProfile.exe
+D:\VISUAL_STUDIO\ProjectsOfC-Sharp\StudentProfile\StudentProfile\bin\Debug\StudentProfile.pdb
+D:\VISUAL_STUDIO\ProjectsOfC-Sharp\StudentProfile\StudentProfile\obj\x86\Debug\StudentProfile.exe
+D:\VISUAL_STUDIO\ProjectsOfC-Sharp\StudentProfile\StudentProfile\obj\x86\Debug\StudentProfile.pdb
+D:\VISUAL_STUDIO\ProjectsOfC-Sharp\StudentProfile\StudentProfile\obj\x86\Debug\StudentProfile.csprojResolveAssemblyReference.cache
