@@ -7,33 +7,40 @@ using System.IO;
 
 namespace StudentProfile
 {
-    // inheritance concepts
-    public class ParentClass
+    // Method Hiding concepts
+    public class Employee
     {
-        public ParentClass()
-        {
-            Console.WriteLine("Parent class Constructor");
-        }
+        public string firstName;
+        public string lastName;
 
-        public ParentClass(string message)
+        public void printFullName()
         {
-            Console.WriteLine(message);
+            Console.WriteLine(firstName + " " + lastName);
         }
     }
 
-    public class ChildClass : ParentClass
+    public class PartTimeEmployee : Employee
     {
-        public ChildClass() : base("derived class controlling parent class")
+        public new void printFullName()
         {
-            Console.WriteLine("Child Class Constructor");
+            //base.printFullName();
+            Console.WriteLine(firstName + " " + lastName + " Contractor");
         }
+    }
+
+    public class FullTimeEmployee : Employee
+    {
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            ChildClass cc = new ChildClass();
+            Employee pte = new PartTimeEmployee();
+            pte.firstName = "PartTime";
+            pte.lastName = "Employee";
+            pte.printFullName();
+            
         }
     }
 }
