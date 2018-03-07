@@ -414,8 +414,10 @@ namespace StudentProfile
             }
         }
 
-        public void viewStudentAttendance(string studentSemester, string pathOfStudentDataBase)
+        public bool viewStudentAttendance(string studentSemester, string pathOfStudentDataBase)
         {
+            int counter = 0;
+
             using (StreamReader readFileObj = new StreamReader(pathOfStudentDataBase))
             {
                 Console.WriteLine("-----------------------------------------------------------");
@@ -434,11 +436,16 @@ namespace StudentProfile
 
                     if (this.studentSemester.Equals(studentSemester))
                     {
+                        counter++;
                         Console.WriteLine(String.Format("   {0,-8} |  {1,-20}|     {2,5}", this.studentId, this.studentName, this.studentAttendance));
                     }
                 }
                 Console.WriteLine("-----------------------------------------------------------");
             }
+            if (counter > 0)
+                return true;
+            else
+                return false;
         }
 
         public void thanksForUsingThisSystem()
@@ -454,7 +461,6 @@ namespace StudentProfile
         static void Main(string[] args)
         {
             Student studentObj = new Student();
-            //string pathOfStudentDataBase = @"C:\Users\JUNAID\Desktop\hello.txt";
             string pathOfStudentDataBase = args[0];
             string choice = null;
             bool tryAgain = true;
@@ -654,7 +660,13 @@ namespace StudentProfile
                             studentSemester = Console.ReadLine();
                             Console.Clear();
 
-                            studentObj.viewStudentAttendance(studentSemester, pathOfStudentDataBase);
+                            if (studentObj.viewStudentAttendance(studentSemester, pathOfStudentDataBase))
+                                Console.WriteLine();
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("\n\n\t\tNo Student Record Exist With This Student Semester");
+                            }
 
                             break;
                         }
