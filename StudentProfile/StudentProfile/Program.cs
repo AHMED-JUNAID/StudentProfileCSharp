@@ -7,37 +7,56 @@ using System.IO;
 
 namespace StudentProfile
 {
-    // auto-implemented Properties C#
-    public class Student
+    //struct concept
+    public struct Customer
     {
-        private int ID;
+        private int Id;
         private string Name;
-        private int PassMarks = 35;
 
-        //auto-implemented properties code
-        public string Email
+        public Customer(int Id, string Name)
         {
-            /*
-             * by using this compiler auto create private field for email
-             * use when no logic is required
-             * simple set the value and get the value without logic
-             * then this method is best
-             * */
-            get;
-            set;
+            this.Id = Id;
+            this.Name = Name;
         }
 
-        //or write like this
-        public string City { get; set; }//another way to write property(auto-implemented)
+        public string Name1
+        {
+            get { return this.Name; }
+            set { this.Name = value; }
+        }
+
+        public int ID
+        {
+            get { return this.Id; }
+            set { this.Id = value; }
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            Student stuObj = new Student();
-            stuObj.Email = "jdpakistani@gmail.com";
-            Console.WriteLine(stuObj.Email);
+            Customer c1 = new Customer();
+            c1.ID = 123;
+            c1.Name1 = "junaid";
+
+            Console.WriteLine(c1.ID);
+            Console.WriteLine(c1.Name1);
+
+            Customer c2 = new Customer(456, "ahmed");
+            Console.WriteLine(c2.ID);
+            Console.WriteLine(c2.Name1);
+
+            Customer c3 = new Customer
+            {
+                ID = 789, 
+                Name1="akram"
+            
+            };
+
+            Console.WriteLine(c3.ID);
+            Console.WriteLine(c3.Name1);
+
         }
     }
 }
