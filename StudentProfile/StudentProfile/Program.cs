@@ -48,6 +48,14 @@ namespace StudentProfile
             //return this.Name;
         }
 
+        public int PassMark //code to define property in c#
+        {
+            get
+            {
+                return this.PassMarks;
+            }
+        }
+
     }
 
     class Program
@@ -57,9 +65,12 @@ namespace StudentProfile
             Student stuObj = new Student();
             stuObj.SetID(15);
             stuObj.SetName("Junaid Ahmed");
+            
 
             Console.WriteLine(stuObj.GetID());
             Console.WriteLine(stuObj.GetName());
+            Console.WriteLine(stuObj.PassMark); //call to property in C#
+            //property doesn't contain braces in call as well as in definition
         }
     }
 }
