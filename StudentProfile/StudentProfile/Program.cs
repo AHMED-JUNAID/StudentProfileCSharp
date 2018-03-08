@@ -7,38 +7,31 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //problems of multiple inheritance
+    //Delegates
+    /*
+     * delegates are reference type
+     * complicated subject but if u get command on basic then extremly easy
+     * provide flexibility
+     * delegate is a type safe function pointer
+     * syntax of delegate is similar to function
+     * to use delegate declare with delegate keyword
+     */
 
-    interface A
-    {
-        void printA();
-    }
+    public delegate void helloDelegate(string msg);
+    //this delegate can point to any function that have VOID return type
+    //and same parameters. you can say same Signature
 
-    interface B 
-    {
-        void printB();
-    }
-
-    public class C : A,B
-    {
-        public void printA()
-        {
-            Console.WriteLine("class C implemented class A");
-        }
-
-        public void printB()
-        {
-            Console.WriteLine("class C implemented class B");
-        }
-    }
-    
     class Program
     {
+        public static void hello(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
         static void Main(string[] args)
         {
-            C ob = new C();
-            ob.printA();
-            ob.printB();
+            helloDelegate delegat = new helloDelegate(hello);
+            delegat("hello from delegate");
         }
     }
 }
