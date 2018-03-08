@@ -7,37 +7,59 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //  method overloading
+    // Properties
+    public class Student
+    {
+        private int ID;
+        private string Name;
+        private int PassMarks = 35;
+
+        public void SetID(int ID)
+        {
+            if (ID < 0) //property of id that id should be greator than 0
+            {
+                throw new Exception("student id should not be -ve");
+            }
+            this.ID = ID;
+        }
+
+        public int GetID()
+        {
+            return this.ID;
+        }
+
+        public void SetName(string Name)
+        {
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new Exception("Name cannot be empty or null");
+            }
+            this.Name = Name;
+        }
+
+        public string GetName()
+        {
+            return string.IsNullOrEmpty(this.Name) ? "No Name" : this.Name;
+
+            //if (string.IsNullOrEmpty(this.Name))
+            //{
+            //    return "No_Name";
+            //}
+            //return this.Name;
+        }
+
+    }
 
     class Program
     {
-        public static void add(int fn, params int[] ln)
-        {
-            Console.WriteLine("sum = {0}", fn);
-        }
-
-        public static void add(int fn, int[] ln)
-        {
-            Console.WriteLine("sum = {0}", fn);
-        }
-
-       
-
-        //public static void add(int fn, int ln, int tn)
-        //{
-        //    Console.WriteLine("sum = {0}", fn + ln + tn);
-        //}
-
-        //public static void add(int fn, int ln, out int sum)
-        //{
-        //    Console.WriteLine("sum = {0}", fn + ln );
-        //    sum = fn + ln;
-        //}
-
-
         static void Main(string[] args)
         {
-           
+            Student stuObj = new Student();
+            stuObj.SetID(15);
+            stuObj.SetName("Junaid Ahmed");
+
+            Console.WriteLine(stuObj.GetID());
+            Console.WriteLine(stuObj.GetName());
         }
     }
 }
