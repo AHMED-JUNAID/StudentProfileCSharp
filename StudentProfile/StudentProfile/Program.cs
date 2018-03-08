@@ -7,59 +7,35 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //  Polymorphism concepts
-    public class Employee
-    {
-        public string firstName = "junaid";
-        public string lastName = "ahmed";
+    //  diff b/w method overriding and method hiding
 
-        public virtual void printFullName()
+    public class Base
+    {
+        public virtual void print()
         {
-            Console.WriteLine(firstName + " " + lastName);
+            Console.WriteLine("Base Class method");
         }
     }
 
-    public class PartTimeEmployee : Employee
+    public class Derived : Base
     {
-        public override void printFullName()
+        public new void print()
         {
-            Console.WriteLine(firstName + " " + lastName + "_PartTime");
+            Console.WriteLine("derived class method");
         }
-    }
 
-    public class FullTimeEmployee : Employee
-    {
-        public override void printFullName()
-        {
-            Console.WriteLine(firstName + " " + lastName + "_FullTime");
-        }
-        
-    }
-
-    public class TempEmployee : Employee
-    {
-        //public override void printFullName()
+        //public override void print()
         //{
-        //    Console.WriteLine(firstName + " " + lastName + "_TempTime");
+        //    Console.WriteLine("derived class method");
         //}
     }
-
+   
     class Program
     {
         static void Main(string[] args)
         {
-            Employee[] arrayOfEmp = new Employee[4];
-
-            arrayOfEmp[0] = new Employee();
-            arrayOfEmp[1] = new PartTimeEmployee();
-            arrayOfEmp[2] = new FullTimeEmployee();
-            arrayOfEmp[3] = new TempEmployee();
-
-            foreach (Employee emp in arrayOfEmp)
-            {
-                emp.printFullName();
-            }
-            
+            Base baseObj = new Derived();
+            baseObj.print();
         }
     }
 }
