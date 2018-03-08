@@ -7,55 +7,28 @@ using System.IO;
 
 namespace StudentProfile
 {
-    // Properties
+    // auto-implemented Properties C#
     public class Student
     {
         private int ID;
         private string Name;
         private int PassMarks = 35;
 
-        public void SetID(int ID)
+        //auto-implemented properties code
+        public string Email
         {
-            if (ID < 0) //property of id that id should be greator than 0
-            {
-                throw new Exception("student id should not be -ve");
-            }
-            this.ID = ID;
+            /*
+             * by using this compiler auto create private field for email
+             * use when no logic is required
+             * simple set the value and get the value without logic
+             * then this method is best
+             * */
+            get;
+            set;
         }
 
-        public int GetID()
-        {
-            return this.ID;
-        }
-
-        public void SetName(string Name)
-        {
-            if (string.IsNullOrEmpty(Name))
-            {
-                throw new Exception("Name cannot be empty or null");
-            }
-            this.Name = Name;
-        }
-
-        public string GetName()
-        {
-            return string.IsNullOrEmpty(this.Name) ? "No Name" : this.Name;
-
-            //if (string.IsNullOrEmpty(this.Name))
-            //{
-            //    return "No_Name";
-            //}
-            //return this.Name;
-        }
-
-        public int PassMark //code to define property in c#
-        {
-            get
-            {
-                return this.PassMarks;
-            }
-        }
-
+        //or write like this
+        public string City { get; set; }//another way to write property(auto-implemented)
     }
 
     class Program
@@ -63,14 +36,8 @@ namespace StudentProfile
         static void Main(string[] args)
         {
             Student stuObj = new Student();
-            stuObj.SetID(15);
-            stuObj.SetName("Junaid Ahmed");
-            
-
-            Console.WriteLine(stuObj.GetID());
-            Console.WriteLine(stuObj.GetName());
-            Console.WriteLine(stuObj.PassMark); //call to property in C#
-            //property doesn't contain braces in call as well as in definition
+            stuObj.Email = "jdpakistani@gmail.com";
+            Console.WriteLine(stuObj.Email);
         }
     }
 }
