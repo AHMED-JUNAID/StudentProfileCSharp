@@ -7,26 +7,24 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //abstract class concept
-    public abstract class AbstractClass //abstract class cannot be sealed or static
-    {
-        public abstract void Print();
-    }
+    //abstract class(AC) vs interfaces concept
+    /*
+     * AC have implementation of some of its members but Interface cann't
+     * Interfaces cann't have access modifier but AC can have access modifier
+     * by default Interface have PUBLIC access modifier
+     * by default AC have PRIVATE access modifier
+     * AC can have fields but Interface cann't
+     * Interface can inherit from Inheritance only
+     * AC can inherit from another AC or another Interface
+     */
+     
    
-    public class Customer : AbstractClass 
-    {
-        public override void Print()
-        {
-            Console.WriteLine("abstract print method implemented\n\n");
-        }
-    }
     
     class Program
     {
         static void Main(string[] args)
         {
-            AbstractClass obj = new Customer();
-            obj.Print();
+            
         }
     }
 }
