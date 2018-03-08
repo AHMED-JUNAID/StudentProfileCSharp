@@ -7,24 +7,43 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //abstract class(AC) vs interfaces concept
-    /*
-     * AC have implementation of some of its members but Interface cann't
-     * Interfaces cann't have access modifier but AC can have access modifier
-     * by default Interface have PUBLIC access modifier
-     * by default AC have PRIVATE access modifier
-     * AC can have fields but Interface cann't
-     * Interface can inherit from Inheritance only
-     * AC can inherit from another AC or another Interface
-     */
-     
-   
+    //problems of multiple inheritance
+
+    public class A
+    {
+        public virtual void print()
+        {
+            Console.WriteLine("class A ");
+        }
+    }
+
+    public class B : A
+    {
+        public override void print()
+        {
+            Console.WriteLine("class B");
+        }
+    }
+
+    public class C : A
+    {
+        public override void print()
+        {
+            Console.WriteLine("class C");
+        }
+    }
+
+    public class D : B, C
+    {
+        //this is an ambiguity called Diamond problem
+    }
     
     class Program
     {
         static void Main(string[] args)
         {
-            
+            D ob = new D();
+            ob.print(); //which override method called ...!!!!
         }
     }
 }
