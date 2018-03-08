@@ -7,35 +7,37 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //  diff b/w method overriding and method hiding
+    //  method overloading
 
-    public class Base
-    {
-        public virtual void print()
-        {
-            Console.WriteLine("Base Class method");
-        }
-    }
-
-    public class Derived : Base
-    {
-        public new void print()
-        {
-            Console.WriteLine("derived class method");
-        }
-
-        //public override void print()
-        //{
-        //    Console.WriteLine("derived class method");
-        //}
-    }
-   
     class Program
     {
+        public static void add(int fn, params int[] ln)
+        {
+            Console.WriteLine("sum = {0}", fn);
+        }
+
+        public static void add(int fn, int[] ln)
+        {
+            Console.WriteLine("sum = {0}", fn);
+        }
+
+       
+
+        //public static void add(int fn, int ln, int tn)
+        //{
+        //    Console.WriteLine("sum = {0}", fn + ln + tn);
+        //}
+
+        //public static void add(int fn, int ln, out int sum)
+        //{
+        //    Console.WriteLine("sum = {0}", fn + ln );
+        //    sum = fn + ln;
+        //}
+
+
         static void Main(string[] args)
         {
-            Base baseObj = new Derived();
-            baseObj.print();
+           
         }
     }
 }
