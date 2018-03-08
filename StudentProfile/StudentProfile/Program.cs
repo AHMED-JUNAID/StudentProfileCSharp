@@ -7,13 +7,13 @@ using System.IO;
 
 namespace StudentProfile
 {
-    // Method Hiding concepts
+    //  Polymorphism concepts
     public class Employee
     {
-        public string firstName;
-        public string lastName;
+        public string firstName = "junaid";
+        public string lastName = "ahmed";
 
-        public void printFullName()
+        public virtual void printFullName()
         {
             Console.WriteLine(firstName + " " + lastName);
         }
@@ -21,25 +21,44 @@ namespace StudentProfile
 
     public class PartTimeEmployee : Employee
     {
-        public new void printFullName()
+        public override void printFullName()
         {
-            //base.printFullName();
-            Console.WriteLine(firstName + " " + lastName + " Contractor");
+            Console.WriteLine(firstName + " " + lastName + "_PartTime");
         }
     }
 
     public class FullTimeEmployee : Employee
     {
+        public override void printFullName()
+        {
+            Console.WriteLine(firstName + " " + lastName + "_FullTime");
+        }
+        
+    }
+
+    public class TempEmployee : Employee
+    {
+        //public override void printFullName()
+        //{
+        //    Console.WriteLine(firstName + " " + lastName + "_TempTime");
+        //}
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            Employee pte = new PartTimeEmployee();
-            pte.firstName = "PartTime";
-            pte.lastName = "Employee";
-            pte.printFullName();
+            Employee[] arrayOfEmp = new Employee[4];
+
+            arrayOfEmp[0] = new Employee();
+            arrayOfEmp[1] = new PartTimeEmployee();
+            arrayOfEmp[2] = new FullTimeEmployee();
+            arrayOfEmp[3] = new TempEmployee();
+
+            foreach (Employee emp in arrayOfEmp)
+            {
+                emp.printFullName();
+            }
             
         }
     }
