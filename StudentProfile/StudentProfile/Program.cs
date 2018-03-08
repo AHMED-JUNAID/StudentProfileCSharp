@@ -7,22 +7,17 @@ using System.IO;
 
 namespace StudentProfile
 {
-    //interface concept
-    interface MY_INTERFACE
+    //abstract class concept
+    public abstract class AbstractClass //abstract class cannot be sealed or static
     {
-        //int iAge; //cannot contains field
-        //public void print(); //access modifier is not allowed
-        //only declaration is allowed
-        //no definition of member is allowed
-        //by default members are PUBLIC in Interface
-        void print();
+        public abstract void Print();
     }
-
-    public class Customer : MY_INTERFACE
+   
+    public class Customer : AbstractClass 
     {
-        public void print()
+        public override void Print()
         {
-            Console.WriteLine("interface print method implemented\n\n");
+            Console.WriteLine("abstract print method implemented\n\n");
         }
     }
     
@@ -30,11 +25,8 @@ namespace StudentProfile
     {
         static void Main(string[] args)
         {
-            MY_INTERFACE m1 = new Customer();
-            m1.print();
-
-            Customer c1 = new Customer();
-            c1.print();
+            AbstractClass obj = new Customer();
+            obj.Print();
         }
     }
 }
