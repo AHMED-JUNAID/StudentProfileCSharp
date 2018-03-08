@@ -9,41 +9,36 @@ namespace StudentProfile
 {
     //problems of multiple inheritance
 
-    public class A
+    interface A
     {
-        public virtual void print()
-        {
-            Console.WriteLine("class A ");
-        }
+        void printA();
     }
 
-    public class B : A
+    interface B 
     {
-        public override void print()
-        {
-            Console.WriteLine("class B");
-        }
+        void printB();
     }
 
-    public class C : A
+    public class C : A,B
     {
-        public override void print()
+        public void printA()
         {
-            Console.WriteLine("class C");
+            Console.WriteLine("class C implemented class A");
         }
-    }
 
-    public class D : B, C
-    {
-        //this is an ambiguity called Diamond problem
+        public void printB()
+        {
+            Console.WriteLine("class C implemented class B");
+        }
     }
     
     class Program
     {
         static void Main(string[] args)
         {
-            D ob = new D();
-            ob.print(); //which override method called ...!!!!
+            C ob = new C();
+            ob.printA();
+            ob.printB();
         }
     }
 }
